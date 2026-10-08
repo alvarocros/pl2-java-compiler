@@ -1,0 +1,13 @@
+procedure simpleFunction() is
+    resultado: Integer;
+
+    function minusTwo(number: Integer) return Integer is
+    begin
+        return number - 2;
+    end minusTwo;
+begin
+    resultado := minusTwo(8);
+    Put_line("(esperado 6)");
+    Put_line(resultado);
+end simpleFunction;
+

@@ -1,0 +1,12 @@
+; Quadruple - [WRITESTRING T_0, L_0, null]
+WRSTR /L_0
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [HALT null, null, null]
+HALT
+
+; Quadruple - [CADENA Hello-World, L_0, null]
+L_0: DATA "Hello-World"
+

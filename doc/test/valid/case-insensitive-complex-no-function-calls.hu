@@ -1,0 +1,43 @@
+prOCEDUrE UptofiVe() Is
+    FIvE: CoNSTANt := 5;
+
+    Type trEsULTaDo iS rEcORD
+        Suma: iNTEGER;
+        MuLt: inTegeR;
+    enD ReCOrd;
+
+    REsULtado, mODIFICadO: tresuLTaDo;
+    indicE: IntegER;
+begIn
+    resuLTADo.SuMa := 0;
+    reSUltaDO.muLT := 1;
+
+    INDICE := fIvE;
+    wHiLE iNDiCe > 0 LOoP
+        -- No EXiste EL OpErADor +, USamOS - (0 - X)
+        reSULTAdO.SUMA := reSultadO.sUmA - (0 - iNDiCE);
+        rESULTaDO.mulT := rEsultADO.mULt * indice;
+        inDiCE := INdIce - 1;
+    END loOP;
+
+    pUt_lInE("sUma (esPeRaDO 15) = ");
+    put_LiNe(resULTado.SuMA);
+
+    puT_LinE("muLt (EsPErAdo 120) = ");
+    pUT_line(rEsULTaDO.MULt);
+
+    modIFicADo := ResUlTAdo;
+    If (MOdifICaDO /= ReSuLTadO) THen
+        PuT_LinE("cOpia NO funCIOno CorrecTAmEnTe (fAIl)");
+    elSE
+        PuT_LINe("CopiA FUNcIONO CORreCTamentE (oK)");
+    end IF;
+
+    modifIcADO.mUlT := 13;
+
+    iF (mODiFIcAdO /= reSuLtADo) tHen
+        pUT_LInE("modiFiCadO y ResuLTaDO no SOn IGUaLeS (Ok)");
+    ElsE
+        put_lINe("MOdiFIcado Y RESultADO SoN IGuales (FaiL)");
+    eND if;
+EnD uPtoFive;

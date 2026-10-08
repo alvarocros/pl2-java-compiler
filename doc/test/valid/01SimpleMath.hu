@@ -1,0 +1,8 @@
+procedure simpleMath() is
+    x, y: Integer;
+begin
+    x := 10;
+    y := 20;
+    x := x * y; -- Multiplicación
+    y := y - x; -- Resta
+end simpleMath;

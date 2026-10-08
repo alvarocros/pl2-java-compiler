@@ -1,0 +1,16 @@
+procedure TestComplex() is
+    x: Integer;
+
+    procedure outer(n: out Integer) is
+        procedure inner(v: Integer) is
+        begin
+            Put_line(v);
+        end inner;
+    begin
+        inner(n);
+    end outer;
+begin
+    x := 5;
+    Put_line("(esperado 5)");
+    outer(x);
+end TestComplex;

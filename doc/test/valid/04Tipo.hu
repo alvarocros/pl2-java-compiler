@@ -1,0 +1,13 @@
+procedure SimpleAsignacion() is
+    -- Tipos globales
+    type Numero is record
+        valor: Integer;
+    end record;
+
+    -- Variables globales
+    num: Numero;
+
+    -- Procedimiento principal
+begin
+    num.valor := 10;
+end SimpleAsignacion;

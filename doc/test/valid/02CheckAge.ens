@@ -1,0 +1,66 @@
+; Quadruple - [VARGLOBAL age, 0, null]
+MOVE #0, /65535
+
+; Quadruple - [MV T_1, 15, null]
+MOVE #15, /65533
+
+; Quadruple - [MVA T_0, age, null]
+MOVE #65535, /65534
+
+; Quadruple - [STP T_0, T_1, null]
+MOVE #65534, .R0
+MOVE [.R0], .R0
+MOVE /65533, [.R0]
+
+; Quadruple - [MVP T_2, age, null]
+MOVE #65535, .R0
+MOVE [.R0], /65532
+
+; Quadruple - [MV T_3, 18, null]
+MOVE #18, /65531
+
+; Quadruple - [GR T_4, T_2, T_3]
+MOVE /65532, .A
+SUB /65531, .A
+BZ /grE65530
+BP /grE65530
+MOVE #1, /65530
+BR /grE265530
+grE65530:
+MOVE #0, /65530
+grE265530:
+
+; Quadruple - [BRF T_4, L_2, null]
+CMP #0, /65530
+BZ /L_2
+
+; Quadruple - [WRITESTRING T_5, L_0, null]
+WRSTR /L_0
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [BR L_3, null, null]
+BR /L_3
+
+; Quadruple - [INL L_2, null, null]
+L_2:
+
+; Quadruple - [WRITESTRING T_6, L_1, null]
+WRSTR /L_1
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [INL L_3, null, null]
+L_3:
+
+; Quadruple - [HALT null, null, null]
+HALT
+
+; Quadruple - [CADENA Mayor de edad, L_0, null]
+L_0: DATA "Mayor de edad"
+
+; Quadruple - [CADENA Menor de edad, L_1, null]
+L_1: DATA "Menor de edad"
+

@@ -1,0 +1,84 @@
+; Quadruple - [WRITESTRING T_0, L_0, null]
+WRSTR /L_0
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [WRITESTRING T_1, L_1, null]
+WRSTR /L_1
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [MV T_2, 1, null]
+MOVE #1, /65533
+
+; Quadruple - [WRITEBOOL T_2, null, null]
+CMP #0, /65533
+BZ /wbF65533
+WRSTR /wbTrue
+BR /wbE65533
+wbF65533:
+WRSTR /wbFalseStr
+wbE65533:
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [WRITESTRING T_3, L_2, null]
+WRSTR /L_2
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [MV T_4, 0, null]
+MOVE #0, /65531
+
+; Quadruple - [WRITEBOOL T_4, null, null]
+CMP #0, /65531
+BZ /wbF65531
+WRSTR /wbTrue
+BR /wbE65531
+wbF65531:
+WRSTR /wbFalseStr
+wbE65531:
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [WRITESTRING T_5, L_3, null]
+WRSTR /L_3
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [MV T_6, 1, null]
+MOVE #1, /65529
+
+; Quadruple - [WRITEINT T_6, null, null]
+WRINT /65529
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [HALT null, null, null]
+HALT
+
+; Quadruple - [CADENA CONSTANTES, L_0, null]
+L_0: DATA "CONSTANTES"
+
+; Quadruple - [CADENA CIERTO(true):, L_1, null]
+L_1: DATA "CIERTO(true):"
+
+; Quadruple - [CADENA FALSO(false):, L_2, null]
+L_2: DATA "FALSO(false):"
+
+; Quadruple - [CADENA UNO(1):, L_3, null]
+L_3: DATA "UNO(1):"
+
+; Quadruple - [CADENA_BOOL_TRUE null, null, null]
+wbTrue: DATA "true"
+
+; Quadruple - [CADENA_BOOL_FALSE null, null, null]
+wbFalseStr: DATA "false"
+

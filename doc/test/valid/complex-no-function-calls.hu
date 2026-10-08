@@ -1,0 +1,42 @@
+procedure upToFive() is
+    FIVE: constant := 5;
+
+    type TResultado is record
+        suma: Integer;
+        mult: Integer;
+    end record;
+
+    resultado, modificado: TResultado;
+    indice: Integer;
+begin
+    resultado.suma := 0;
+    resultado.mult := 1;
+    indice := FIVE;
+    while indice > 0 loop
+        -- No existe el operador +, usamos - (0 - x)
+        resultado.suma := resultado.suma - (0 - indice);
+        resultado.mult := resultado.mult * indice;
+        indice := indice - 1;
+    end loop;
+
+    Put_line("suma (esperado 15) = ");
+    Put_line(resultado.suma);
+
+    Put_line("mult (esperado 120) = ");
+    Put_line(resultado.mult);
+
+    modificado := resultado;
+    if (modificado /= resultado) then
+        Put_line("copia no funciono correctamente (FAIL)");
+    else
+        Put_line("copia funciono correctamente (OK)");
+    end if;
+
+    modificado.mult := 13;
+
+    if (modificado /= resultado) then
+        Put_line("modificado y resultado no son iguales (OK)");
+    else
+        Put_line("modificado y resultado son iguales (FAIL)");
+    end if;
+end upToFive;

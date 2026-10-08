@@ -1,0 +1,98 @@
+PRoceDUre UpTOfIVe() Is
+    TWO: CONstaNt := 2;
+
+    tyPe TEsTADIstIcas iS ReCord
+        suma: inTeGer;
+        muLT: iNtegeR;
+    eNd ReCoRD;
+
+    TYpe TNuMEroS IS RECORd
+        uNO: teSTaDIsTiCas;
+        dOs: testaDIsticAs;
+        TREs: testaDIsTICAs;
+        iniTiaLIzed: BOoLEAN;
+    END RecOrD;
+
+    NumeRos, cOpIa: tnuMEROs;
+    ERROR: bOOlEAn;
+
+    procedurE InICiALIZarnuMEROs(NuMeROS: out tNUMErOS) is
+        COpIALOcal: tNuMeROS;
+
+        ProceduRe iNIciAlIZAr(eSt: ouT TESTAdIStiCAs; LImiT: INTEGer) is
+        BeGiN
+            EsT.SuMA := 0;
+            Est.MUlt := 1;
+
+            WhiLE LiMIT > 0 lOOP
+                EST.SuMa := esT.SumA - (0 - LImIt);
+                eST.MUlT := est.MulT * lIMiT;
+                lIMit := LimIT - 1;
+            enD LoOP;
+        EnD iNIciALIZaR;
+    beGIn
+        INICiALIzaR(numerOS.UNo, 1);
+        iNiCIalIzAr(NUMeros.DoS, 2);
+        iNIcIaLiZAr(nUmERos.TReS, 3);
+        nUMEroS.inITIalIZeD := TrUE;
+
+        COPiAlocal := nUMerOS;
+        if CoPIalocal /= NumEROs tHEn
+            puT_Line("Error al cOPIAr UN reCORd pASaDO poR REfEREncIa");
+        ElSE
+            pUt_LINE("RecORd PaSAdO Por rEferENCIA coPiAdo cORrEctAmeNtE");
+        End If;
+    eND iniCiAlizARNUMeRos;
+
+    fUnctioN IMpriMIReStAdo(numEROS: TnUmeROS) retURn bOOleaN is
+        ESbaSUra: BoOleAN;
+
+        PRoceDURe imPRiMiREstaDiStiCA(ESt: TeStadiSticAS; n: IntegeR) is
+            DoBle: intEGeR;
+        bEGIN
+            puT_liNE(N);
+            PUT_liNE("sUMa=");
+            pUT_Line(est.SUMA);
+            Put_liNE("MuLT=");
+            PUt_liNE(est.mulT);
+            pUt_Line("dObLE=");
+            DObLE := n * tWO;
+            PuT_lIne(DOBle);
+            PuT_LinE("=============");
+        end IMPrIMIREsTaDiSTIca;
+    begin
+        iMPRImIREsTadIsTIcA(NumeROs.unO, 1);
+        iMprImiREsTaDiSTIca(NUmErOS.Dos, 2);
+        ImpriMirESTAdisTiCa(nUmEroS.tReS, 3);
+
+        iF NumEros.initIaLizEd tHen
+            ESbASUrA := fALSe;
+        eLsE
+            ESBaSuRa := tRue;
+        ENd IF;
+
+        -- mODifiCaR EL paRAMeTRO paRA cOmproBAR que No SE REFlEja FUeRa
+        numerOs.uno.mULT := 555;
+
+        RETUrN eSbAsUrA;
+    end imPRImIReSTAdo;
+bEgiN
+    IniCiAlIzARnUmeROs(NUmEROS);
+
+    cOpiA := numERoS;
+
+    eRrOr := iMPrImIREStAdO(nUmErOs);
+    ERRoR := fAlSe;
+
+    if ERrOR TheN
+        PUt_LiNe("ImpRiMireSTado hA INdICAdO QuE El vAlOR no estAbA IniCiAlIZADo (???)");
+    eLSe
+        Put_LInE("impRimiResTaDo HA iMPREsO cOrrEctamENtE");
+    end if;
+
+    if COpIA /= nUMEros ThEN
+        pUT_lIne("imprIMiRESTadO ha modiFICADo numErO, iNESPERADO!");
+    ElSe
+        PUT_LInE("tODO eN orDen");
+    end if;
+end uPTofIVE;

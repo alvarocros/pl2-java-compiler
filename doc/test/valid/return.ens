@@ -1,0 +1,6 @@
+; Quadruple - [VARGLOBAL RESULTADO, 0, null]
+MOVE #0, /65535
+
+; Quadruple - [HALT null, null, null]
+HALT
+hh

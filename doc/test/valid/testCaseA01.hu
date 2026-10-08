@@ -1,0 +1,33 @@
+-- programa vacio
+
+procedure testCase01 () is
+	 
+	type Tpersona is record 
+		nombre: Integer;
+		edad: Integer;
+		casado: Boolean;
+	end record;
+	type Tfecha is record 
+		dia: Integer; 
+		mes : Integer; 
+		anyo : Integer; 
+	end record; 
+	
+	type Tcita is record 
+		usuario:Tpersona; 
+		fecha:Tfecha; 
+	end record;
+	
+	x:Integer; 
+	mayorEdad:Boolean;
+	p1:Tpersona;   
+	f1:Tfecha; 
+	c1:Tcita;
+	
+	
+begin
+x := 1; 
+p1.edad := 23;
+c1.usuario.edad := 5;
+	
+end testCase01;

@@ -1,0 +1,21 @@
+procedure simpleFunction() is
+    type TComplex is record
+        real: Integer;
+        imag: Integer;
+    end record;
+
+    resultado: TComplex;
+
+    procedure set(c: out TComplex) is
+    begin
+        c.real := 45;
+        c.imag := 69;
+    end set;
+begin
+    set(resultado);
+    Put_line("(esperado 45)");
+    Put_line(resultado.real);
+    Put_line("(esperado 69)");
+    Put_line(resultado.imag);
+end simpleFunction;
+

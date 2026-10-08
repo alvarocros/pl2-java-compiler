@@ -1,0 +1,20 @@
+procedure helloWorld() is
+    x: Integer;
+    b: Boolean;
+begin
+    Put_line("Hello");
+    Put_line("Hello");
+    Put_line("Hello");
+    Put_line("Hello");
+    Put_line("Hello");
+
+    Put_line(7);
+    Put_line(9 - 2);
+    x := 9 - 2;
+    Put_line(x);
+
+    Put_line(false);
+    Put_line(true AND false);
+    b := true AND false;
+    Put_line(b);
+end helloWorld;

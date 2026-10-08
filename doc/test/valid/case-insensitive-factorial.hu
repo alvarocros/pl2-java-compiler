@@ -1,0 +1,32 @@
+ProcedURE mAIN() IS
+    ReSUlt: iNTeGER;
+
+    FUNcTIoN FACtorial(n: iNTEGER) REtUrN INTEgER iS
+    bEGiN
+        iF (N > 1) THen
+            rEtuRN n * facTORIAL(n - 1);
+        ENd if;
+
+        REtuRN 1;
+    eND FAcTOriAL;
+
+    prOcEDURe facTorIaLproC(n : iNTEgER; reSuLT : out inTEgeR) Is
+        tEmP : inTEGeR;
+    BeGin
+        If n > 1 tHEn
+            FaCToriAlpROC(n - 1, tEMP);
+            ReSULt := n * teMP;
+        ELse
+            Result := 1;
+        enD IF;
+    EnD fAcTOrIaLPRoc;
+
+BEgIN
+    resUlt := faCTOriaL(5);
+    pUT_Line("faCtorIal(5) [120]");
+    Put_Line(result);
+    ReSult := 1;
+    FacTorIAlproc(6, reSult);
+    put_Line("factorIal(6) (vIA PrOCeduRe) [720]");
+    Put_line(rESulT);
+end Main;

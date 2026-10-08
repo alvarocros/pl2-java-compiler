@@ -1,0 +1,11 @@
+procedure countToTen() is
+    counter: Integer;
+begin
+    counter := 10;
+    while counter > 1 loop
+        if counter /= 5 then -- Uso del operador "distinto de"
+            Put_line(counter);
+        end if;
+        counter := counter - 1;
+    end loop;
+end countToTen;

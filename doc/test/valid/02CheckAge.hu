@@ -1,0 +1,11 @@
+procedure checkAge() is
+    age: Integer;
+begin
+    age := 15;
+    if age > 18 then
+        Put_line("Mayor de edad");
+    else
+        Put_line("Menor de edad");
+    end if;
+end checkAge;
+

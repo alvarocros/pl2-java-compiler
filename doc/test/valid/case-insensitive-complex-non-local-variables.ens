@@ -1,0 +1,237 @@
+; Quadruple - [VARGLOBAL INDICE, 0, null]
+MOVE #0, /65535
+
+; Quadruple - [VARGLOBAL VALUETOSETTO, 0, null]
+MOVE #0, /65534
+
+; Quadruple - [VARGLOBAL RESULTADO, 0, null]
+MOVE #0, /65533
+
+; Quadruple - [MV T_1, 10, null]
+MOVE #10, /65531
+
+; Quadruple - [MVA T_0, INDICE, null]
+MOVE #65535, /65532
+
+; Quadruple - [STP T_0, T_1, null]
+MOVE #65532, .R0
+MOVE [.R0], .R0
+MOVE /65531, [.R0]
+
+; Quadruple - [MV T_3, 5, null]
+MOVE #5, /65529
+
+; Quadruple - [MVA T_2, VALUETOSETTO, null]
+MOVE #65534, /65530
+
+; Quadruple - [STP T_2, T_3, null]
+MOVE #65530, .R0
+MOVE [.R0], .R0
+MOVE /65529, [.R0]
+
+; Quadruple - [MVA T_4, RESULTADO, null]
+MOVE #65533, /65528
+
+; Quadruple - [MV T_5, 0, null]
+MOVE #0, /65527
+
+; Quadruple - [SUB T_6, T_4, T_5]
+SUB /65528, /65527
+MOVE .A, /65526
+
+; Quadruple - [STP T_6, T_9, null]
+MOVE #65526, .R0
+MOVE [.R0], .R0
+MOVE /65523, [.R0]
+
+; Quadruple - [WRITESTRING T_10, L_5, null]
+WRSTR /L_5
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [MVP T_11, INDICE, null]
+MOVE #65535, .R0
+MOVE [.R0], /65521
+
+; Quadruple - [MV T_12, 10, null]
+MOVE #10, /65520
+
+; Quadruple - [NE T_13, T_11, T_12]
+CMP /65520, /65521
+BNZ /neT65519
+MOVE #0, /65519
+BR /neE65519
+neT65519:
+MOVE #1, /65519
+neE65519:
+
+; Quadruple - [BRF T_13, L_8, null]
+CMP #0, /65519
+BZ /L_8
+
+; Quadruple - [WRITESTRING T_14, L_6, null]
+WRSTR /L_6
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [BR L_9, null, null]
+BR /L_9
+
+; Quadruple - [INL L_8, null, null]
+L_8:
+
+; Quadruple - [WRITESTRING T_15, L_7, null]
+WRSTR /L_7
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [INL L_9, null, null]
+L_9:
+
+; Quadruple - [WRITESTRING T_16, L_10, null]
+WRSTR /L_10
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [MVA T_17, RESULTADO, null]
+MOVE #65533, /65515
+
+; Quadruple - [MV T_18, 0, null]
+MOVE #0, /65514
+
+; Quadruple - [SUB T_19, T_17, T_18]
+SUB /65515, /65514
+MOVE .A, /65513
+
+; Quadruple - [MVPP T_20, T_19, null]
+MOVE #65513, .R0
+MOVE [.R0], .R0
+MOVE [.R0], /65512
+
+; Quadruple - [MV T_21, 5, null]
+MOVE #5, /65511
+
+; Quadruple - [NE T_22, T_20, T_21]
+CMP /65511, /65512
+BNZ /neT65510
+MOVE #0, /65510
+BR /neE65510
+neT65510:
+MOVE #1, /65510
+neE65510:
+
+; Quadruple - [BRF T_22, L_13, null]
+CMP #0, /65510
+BZ /L_13
+
+; Quadruple - [WRITESTRING T_23, L_11, null]
+WRSTR /L_11
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [BR L_14, null, null]
+BR /L_14
+
+; Quadruple - [INL L_13, null, null]
+L_13:
+
+; Quadruple - [WRITESTRING T_24, L_12, null]
+WRSTR /L_12
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [INL L_14, null, null]
+L_14:
+
+; Quadruple - [WRITESTRING T_26, L_15, null]
+WRSTR /L_15
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [MVP T_27, VALUETOSETTO, null]
+MOVE #65534, .R0
+MOVE [.R0], /65505
+
+; Quadruple - [MV T_28, 42, null]
+MOVE #42, /65504
+
+; Quadruple - [NE T_29, T_27, T_28]
+CMP /65504, /65505
+BNZ /neT65503
+MOVE #0, /65503
+BR /neE65503
+neT65503:
+MOVE #1, /65503
+neE65503:
+
+; Quadruple - [BRF T_29, L_18, null]
+CMP #0, /65503
+BZ /L_18
+
+; Quadruple - [WRITESTRING T_30, L_16, null]
+WRSTR /L_16
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [BR L_19, null, null]
+BR /L_19
+
+; Quadruple - [INL L_18, null, null]
+L_18:
+
+; Quadruple - [WRITESTRING T_31, L_17, null]
+WRSTR /L_17
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [INL L_19, null, null]
+L_19:
+
+; Quadruple - [HALT null, null, null]
+HALT
+
+; Quadruple - [CADENA aCCesO a VARiableS eXteRNas..., L_0, null]
+L_0: DATA "aCCesO a VARiableS eXteRNas..."
+
+; Quadruple - [CADENA FAiL, L_1, null]
+L_1: DATA "FAiL"
+
+; Quadruple - [CADENA oK, L_2, null]
+L_2: DATA "oK"
+
+; Quadruple - [CADENA NO SE modIficAN VaRiaBLeS oCUlTaS De scoPES superIoRes..., L_5, null]
+L_5: DATA "NO SE modIficAN VaRiaBLeS oCUlTaS De scoPES superIoRes..."
+
+; Quadruple - [CADENA fAiL, L_6, null]
+L_6: DATA "fAiL"
+
+; Quadruple - [CADENA Ok, L_7, null]
+L_7: DATA "Ok"
+
+; Quadruple - [CADENA Se MOdificA CORRectAmente un PaRamEtRO locAL QUe OCuLTa A VaRiable SUpErioR..., L_10, null]
+L_10: DATA "Se MOdificA CORRectAmente un PaRamEtRO locAL QUe OCuLTa A VaRiable SUpErioR..."
+
+; Quadruple - [CADENA FAil, L_11, null]
+L_11: DATA "FAil"
+
+; Quadruple - [CADENA ok, L_12, null]
+L_12: DATA "ok"
+
+; Quadruple - [CADENA sE modiFICA CorReCtAMenTe uN ParAMetRO locaL out Desde vaRioS nIvelES poR DEbajo..., L_15, null]
+L_15: DATA "sE modiFICA CorReCtAMenTe uN ParAMetRO locaL out Desde vaRioS nIvelES poR DEbajo..."
+
+; Quadruple - [CADENA fAIl, L_16, null]
+L_16: DATA "fAIl"
+
+; Quadruple - [CADENA OK, L_17, null]
+L_17: DATA "OK"
+

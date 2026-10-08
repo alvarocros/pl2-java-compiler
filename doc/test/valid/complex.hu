@@ -1,0 +1,93 @@
+procedure TestComplex() is
+
+   -- Global constant
+   MYCONST: constant := 10;
+
+   -- Nested record types
+   type TInner is record
+      val: Integer;
+   end record;
+
+   type TOuter is record
+      x: Integer;
+      nested: TInner;
+   end record;
+
+   -- Global variable
+   outerVar: TOuter;
+
+   ----------------------------------------------------------------------------
+   -- 1) Direct recursion: countdown calls itself
+   ----------------------------------------------------------------------------
+   function countdown(n: Integer) return Integer is
+   begin
+      if n > 0 then             -- ‘if’ without an else
+         return countdown(n - 1);
+      end if;
+      return n;
+   end countdown;
+
+   ----------------------------------------------------------------------------
+   -- 2) A function using all operators: - and *, and, >, /=
+   ----------------------------------------------------------------------------
+   function multiplyIfNotEqual(a: Integer; b: Integer; check: Integer)
+      return Integer
+   is
+   begin
+      -- ‘if’ with else, plus 'and' and '/=' operators
+      if (a /= check) and (b /= check) then
+         return a * b;    -- multiply
+      else
+         return a - b;    -- minus
+      end if;
+   end multiplyIfNotEqual;
+
+   ----------------------------------------------------------------------------
+   -- 3) A procedure containing a sub-procedure (nested function)
+   --    plus shadowing the global constant MYCONST with a local variable
+   ----------------------------------------------------------------------------
+   procedure outerProc() is
+      MYCONST: Integer;  -- shadows the global constant of the same name
+
+      procedure innerProc(a: Integer) is
+      begin
+         -- Use the minus operator to modify a global record field
+         outerVar.x := outerVar.x - a;
+      end innerProc;
+
+   begin
+      MYCONST := 5 * 2;  -- overshadowed MYCONST
+      -- pass (MYCONST - 5) to innerProc
+      innerProc(MYCONST - 5);
+   end outerProc;
+
+begin
+   ----------------------------------------------------------------------------
+   -- Main procedure body
+   ----------------------------------------------------------------------------
+
+   -- Initialize the global record
+   outerVar.x := 10;
+   outerVar.nested.val := 3;
+
+   ----------------------------------------------------------------------------
+   -- 5) A while loop demonstrating repeated assignments
+   ----------------------------------------------------------------------------
+   while outerVar.x > 0 loop
+      outerVar.x := outerVar.x - 1;  -- minus operator
+   end loop;
+
+   ----------------------------------------------------------------------------
+   -- 6) Conditional using '>'
+   ----------------------------------------------------------------------------
+   if multiplyIfNotEqual(outerVar.x, outerVar.nested.val, MYCONST) > 0 then
+      Put_line("Positive");
+   end if;
+
+   -- Call the nested procedure
+   outerProc();
+
+   -- Print result of direct recursion
+   Put_line(countdown(5));
+
+end TestComplex;

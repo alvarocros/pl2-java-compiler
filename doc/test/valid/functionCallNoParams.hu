@@ -1,0 +1,12 @@
+procedure simpleFunction() is
+    resultado: Integer;
+
+    function three() return Integer is
+    begin
+        return 3;
+    end three;
+begin
+    resultado := three();
+    Put_line("esperado (3)");
+    Put_line(resultado);
+end simpleFunction;

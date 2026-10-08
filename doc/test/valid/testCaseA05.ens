@@ -1,0 +1,187 @@
+; Quadruple - [VARGLOBAL t, 0, null]
+MOVE #0, /65535
+
+; Quadruple - [VARGLOBAL x, 0, null]
+MOVE #0, /65534
+
+; Quadruple - [WRITESTRING T_0, L_0, null]
+WRSTR /L_0
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [MV T_2, 1, null]
+MOVE #1, /65531
+
+; Quadruple - [MVA T_1, t, null]
+MOVE #65535, /65532
+
+; Quadruple - [STP T_1, T_2, null]
+MOVE #65532, .R0
+MOVE [.R0], .R0
+MOVE /65531, [.R0]
+
+; Quadruple - [WRITESTRING T_3, L_1, null]
+WRSTR /L_1
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [MVP T_4, t, null]
+MOVE #65535, .R0
+MOVE [.R0], /65529
+
+; Quadruple - [MV T_5, 1, null]
+MOVE #1, /65528
+
+; Quadruple - [MV T_6, 1, null]
+MOVE #1, /65527
+
+; Quadruple - [AND T_7, T_5, T_6]
+CMP #0, /65528
+BZ /andF65526
+CMP #0, /65527
+BZ /andF65526
+MOVE #1, /65526
+BR /andE65526
+andF65526:
+MOVE #0, /65526
+andE65526:
+
+; Quadruple - [AND T_8, T_4, T_7]
+CMP #0, /65529
+BZ /andF65525
+CMP #0, /65526
+BZ /andF65525
+MOVE #1, /65525
+BR /andE65525
+andF65525:
+MOVE #0, /65525
+andE65525:
+
+; Quadruple - [BRF T_8, L_3, null]
+CMP #0, /65525
+BZ /L_3
+
+; Quadruple - [WRITESTRING T_9, L_2, null]
+WRSTR /L_2
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [INL L_3, null, null]
+L_3:
+
+; Quadruple - [MV T_11, 2, null]
+MOVE #2, /65522
+
+; Quadruple - [MVA T_10, x, null]
+MOVE #65534, /65523
+
+; Quadruple - [STP T_10, T_11, null]
+MOVE #65523, .R0
+MOVE [.R0], .R0
+MOVE /65522, [.R0]
+
+; Quadruple - [WRITESTRING T_12, L_4, null]
+WRSTR /L_4
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [MVP T_13, x, null]
+MOVE #65534, .R0
+MOVE [.R0], /65520
+
+; Quadruple - [MV T_14, 1, null]
+MOVE #1, /65519
+
+; Quadruple - [GR T_15, T_13, T_14]
+MOVE /65520, .A
+SUB /65519, .A
+BZ /grE65518
+BP /grE65518
+MOVE #1, /65518
+BR /grE265518
+grE65518:
+MOVE #0, /65518
+grE265518:
+
+; Quadruple - [BRF T_15, L_6, null]
+CMP #0, /65518
+BZ /L_6
+
+; Quadruple - [WRITESTRING T_16, L_5, null]
+WRSTR /L_5
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [INL L_6, null, null]
+L_6:
+
+; Quadruple - [WRITESTRING T_17, L_7, null]
+WRSTR /L_7
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [MVP T_18, x, null]
+MOVE #65534, .R0
+MOVE [.R0], /65515
+
+; Quadruple - [MV T_19, 3, null]
+MOVE #3, /65514
+
+; Quadruple - [NE T_20, T_18, T_19]
+CMP /65514, /65515
+BNZ /neT65513
+MOVE #0, /65513
+BR /neE65513
+neT65513:
+MOVE #1, /65513
+neE65513:
+
+; Quadruple - [BRF T_20, L_9, null]
+CMP #0, /65513
+BZ /L_9
+
+; Quadruple - [WRITESTRING T_21, L_8, null]
+WRSTR /L_8
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [INL L_9, null, null]
+L_9:
+
+; Quadruple - [HALT null, null, null]
+HALT
+
+; Quadruple - [CADENA IF OPERADORES, L_0, null]
+L_0: DATA "IF OPERADORES"
+
+; Quadruple - [CADENA t(cierto):, L_1, null]
+L_1: DATA "t(cierto):"
+
+; Quadruple - [CADENA cierto, L_2, null]
+L_2: DATA "cierto"
+
+; Quadruple - [CADENA x mayor (cierto):, L_4, null]
+L_4: DATA "x mayor (cierto):"
+
+; Quadruple - [CADENA cierto, L_5, null]
+L_5: DATA "cierto"
+
+; Quadruple - [CADENA x desigual (cierto):, L_7, null]
+L_7: DATA "x desigual (cierto):"
+
+; Quadruple - [CADENA cierto, L_8, null]
+L_8: DATA "cierto"
+
+; Quadruple - [CADENA_BOOL_TRUE null, null, null]
+wbTrue: DATA "true"
+
+; Quadruple - [CADENA_BOOL_FALSE null, null, null]
+wbFalseStr: DATA "false"
+

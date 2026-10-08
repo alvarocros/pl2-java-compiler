@@ -1,0 +1,98 @@
+procedure upToFive() is
+    TWO: constant := 2;
+
+    type TEstadisticas is record
+        suma: Integer;
+        mult: Integer;
+    end record;
+
+    type TNumeros is record
+        uno: TEstadisticas;
+        dos: TEstadisticas;
+        tres: TEstadisticas;
+        initialized: Boolean;
+    end record;
+
+    numeros, copia: TNumeros;
+    error: Boolean;
+
+    procedure inicializarNumeros(numeros: out TNumeros) is
+        copiaLocal: TNumeros;
+
+        procedure inicializar(est: out TEstadisticas; limit: Integer) is
+        begin
+            est.suma := 0;
+            est.mult := 1;
+
+            while limit > 0 loop
+                est.suma := est.suma - (0 - limit);
+                est.mult := est.mult * limit;
+                limit := limit - 1;
+            end loop;
+        end inicializar;
+    begin
+        inicializar(numeros.uno, 1);
+        inicializar(numeros.dos, 2);
+        inicializar(numeros.tres, 3);
+        numeros.initialized := True;
+
+        copiaLocal := numeros;
+        if copiaLocal /= numeros then
+            Put_line("Error al copiar un record pasado por referencia");
+        else
+            Put_line("Record pasado por referencia copiado correctamente");
+        end if;
+    end inicializarNumeros;
+
+    function imprimirEstado(numeros: TNumeros) return Boolean is
+        esBasura: Boolean;
+
+        procedure imprimirEstadistica(est: TEstadisticas; n: Integer) is
+            doble: Integer;
+        begin
+            Put_line(n);
+            Put_line("suma=");
+            Put_line(est.suma);
+            Put_line("mult=");
+            Put_line(est.mult);
+            Put_line("Doble=");
+            doble := n * TWO;
+            Put_line(doble);
+            Put_line("=============");
+        end imprimirEstadistica;
+    begin
+        imprimirEstadistica(numeros.uno, 1);
+        imprimirEstadistica(numeros.dos, 2);
+        imprimirEstadistica(numeros.tres, 3);
+
+        if numeros.initialized then
+            esBasura := False;
+        else
+            esBasura := True;
+        end if;
+
+        -- Modificar el parametro para comprobar que no se refleja fuera
+        numeros.uno.mult := 555;
+
+        return esBasura;
+    end imprimirEstado;
+begin
+    inicializarNumeros(numeros);
+
+    copia := numeros;
+
+    error := imprimirEstado(numeros);
+    error := false;
+
+    if error then
+        Put_line("imprimirEstado ha indicado que el valor no estaba inicializado (???)");
+    else
+        Put_line("imprimirEstado ha impreso correctamente");
+    end if;
+
+    if copia /= numeros then
+        Put_line("imprimirEstado ha modificado numero, inesperado!");
+    else
+        Put_line("Todo en orden");
+    end if;
+end upToFive;

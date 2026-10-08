@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//doc/specs/parser.cup=UTF-8
+encoding//doc/test/valid/return.ens=UTF-8
+encoding//src/compiler/code/ExecutionEnvironmentEns2001.java=UTF-8
+encoding//src/compiler/syntax/nonTerminal/Sentencia.java=UTF-8

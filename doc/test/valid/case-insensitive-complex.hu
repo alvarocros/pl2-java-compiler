@@ -1,0 +1,93 @@
+pROcedure teStComPLEX() is
+
+   -- GloBal coNsTaNt
+   mYConSt: cOnstanT := 10;
+
+   -- nEsTED rEcoRD TYpES
+   tyPe tInNeR iS RECoRd
+      VaL: InTEGER;
+   end recOrD;
+
+   TyPE toUTEr Is reCord
+      x: intEGeR;
+      nesteD: TINner;
+   End RECOrd;
+
+   -- GlObaL VARiaBLe
+   ouTErvaR: TOUTER;
+
+   ----------------------------------------------------------------------------
+   -- 1) DIrEcT rECURsIOn: coUNTDOwN cAlLS ITsELf
+   ----------------------------------------------------------------------------
+   FUnctIOn couNTdowN(n: INTEgeR) reTURn inTEgEr IS
+   begin
+      If N > 0 tHeN             --WitHOUt An else
+         rEtURn coUnTdOwn(n - 1);
+      enD IF;
+      RETUrn n;
+   eND coUnTdOwN;
+
+   ----------------------------------------------------------------------------
+   -- 2) A FUNcTION using all OpERatORs: - And *, aNd, >, /=
+   ----------------------------------------------------------------------------
+   FunCtIoN MuLTIpLyIFnoTeqUAl(a: Integer; B: inteGer; cHECk: INtEger)
+      ReturN iNtEgER
+   is
+   BegIN
+      --  With ElsE, Plus 'anD' and '/=' oPerATOrS
+      if (a /= Check) AnD (b /= chECK) THen
+         RetUrn a * b;    -- MulTIply
+      eLsE
+         rEturN a - b;    -- MiNuS
+      EnD if;
+   END MuLTIpLYifnoteQUAl;
+
+   ----------------------------------------------------------------------------
+   -- 3) a proCeDuRe CoNtaInInG a SUB-pROcEDURE (NestED funcTIoN)
+   --    PluS sHADOwiNG tHE gLObaL cONSTaNt myCOnsT WItH a LOCaL vAriaBle
+   ----------------------------------------------------------------------------
+   ProCedURE OUTeRpRoc() is
+      MyCOnst: IntEger;  -- SHADoWS ThE GLOBaL CONstANT OF thE same namE
+
+      ProCeDURE INNErPRoC(a: InTeGer) is
+      BEgin
+         -- usE the Minus OPEratoR To ModiFy a gLoBal rECorD fiEld
+         outeRVaR.X := ouTeRvAr.x - a;
+      eNd innERprOC;
+
+   beGiN
+      MYcOnst := 5 * 2;  -- OVERSHaDOwEd mycOnst
+      -- PasS (MYCONst - 5) tO inNerpRoC
+      InNErpRoc(myCoNST - 5);
+   ENd oUtErPrOC;
+
+bEGIN
+   ----------------------------------------------------------------------------
+   -- MAiN PROcEDURe bODY
+   ----------------------------------------------------------------------------
+
+   -- INitiALIzE THE GlObAL ReCoRD
+   OuTErVaR.x := 10;
+   outerVaR.NEsTEd.val := 3;
+
+   ----------------------------------------------------------------------------
+   -- 5) a WHILe loOp DemOnSTRatiNG REpEAtEd asSiGNmeNTs
+   ----------------------------------------------------------------------------
+   wHILe OuTerVAr.x > 0 LooP
+      oUteRvAR.x := oUTerVar.x - 1;  -- MiNus oPeRatOr
+   end LoOP;
+
+   ----------------------------------------------------------------------------
+   -- 6) CoNdITIOnAL UsINg '>'
+   ----------------------------------------------------------------------------
+   if mUltiplYIFNotEQuaL(outeRVAr.x, oUTervAR.neSTED.Val, myconsT) > 0 tHEN
+      PuT_LINE("pOsiTive");
+   end if;
+
+   -- caLL tHe neSteD pROCEDuRE
+   OuteRPROc();
+
+   -- PRInt Result Of dIreCT rECursIon
+   pUt_LiNe(countdoWN(5));
+
+end testCoMpLEx;

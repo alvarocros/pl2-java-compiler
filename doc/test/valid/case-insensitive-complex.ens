@@ -1,0 +1,169 @@
+; Quadruple - [VARGLOBAL OUTERVAR, 0, null]
+MOVE #0, /65535
+
+; Quadruple - [MV T_4, 10, null]
+MOVE #10, /65529
+
+; Quadruple - [MVA T_0, OUTERVAR, null]
+MOVE #65535, /65533
+
+; Quadruple - [MV T_1, 0, null]
+MOVE #0, /65532
+
+; Quadruple - [SUB T_2, T_0, T_1]
+SUB /65533, /65532
+MOVE .A, /65531
+
+; Quadruple - [STP T_2, T_4, null]
+MOVE #65531, .R0
+MOVE [.R0], .R0
+MOVE /65529, [.R0]
+
+; Quadruple - [MV T_12, 3, null]
+MOVE #3, /65521
+
+; Quadruple - [MVA T_5, OUTERVAR, null]
+MOVE #65535, /65528
+
+; Quadruple - [MV T_6, 1, null]
+MOVE #1, /65527
+
+; Quadruple - [SUB T_7, T_5, T_6]
+SUB /65528, /65527
+MOVE .A, /65526
+
+; Quadruple - [MVPP T_8, T_7, null]
+MOVE #65526, .R0
+MOVE [.R0], .R0
+MOVE [.R0], /65525
+
+; Quadruple - [MV T_9, 0, null]
+MOVE #0, /65524
+
+; Quadruple - [SUB T_10, T_7, T_9]
+SUB /65526, /65524
+MOVE .A, /65523
+
+; Quadruple - [STP T_10, T_12, null]
+MOVE #65523, .R0
+MOVE [.R0], .R0
+MOVE /65521, [.R0]
+
+; Quadruple - [INL L_3, null, null]
+L_3:
+
+; Quadruple - [MVA T_13, OUTERVAR, null]
+MOVE #65535, /65520
+
+; Quadruple - [MV T_14, 0, null]
+MOVE #0, /65519
+
+; Quadruple - [SUB T_15, T_13, T_14]
+SUB /65520, /65519
+MOVE .A, /65518
+
+; Quadruple - [MVPP T_16, T_15, null]
+MOVE #65518, .R0
+MOVE [.R0], .R0
+MOVE [.R0], /65517
+
+; Quadruple - [MV T_17, 0, null]
+MOVE #0, /65516
+
+; Quadruple - [GR T_18, T_16, T_17]
+MOVE /65517, .A
+SUB /65516, .A
+BZ /grE65515
+BP /grE65515
+MOVE #1, /65515
+BR /grE265515
+grE65515:
+MOVE #0, /65515
+grE265515:
+
+; Quadruple - [BRF T_18, L_4, null]
+CMP #0, /65515
+BZ /L_4
+
+; Quadruple - [MVA T_23, OUTERVAR, null]
+MOVE #65535, /65510
+
+; Quadruple - [MV T_24, 0, null]
+MOVE #0, /65509
+
+; Quadruple - [SUB T_25, T_23, T_24]
+SUB /65510, /65509
+MOVE .A, /65508
+
+; Quadruple - [MVPP T_26, T_25, null]
+MOVE #65508, .R0
+MOVE [.R0], .R0
+MOVE [.R0], /65507
+
+; Quadruple - [MV T_27, 1, null]
+MOVE #1, /65506
+
+; Quadruple - [SUB T_28, T_26, T_27]
+SUB /65507, /65506
+MOVE .A, /65505
+
+; Quadruple - [MVA T_19, OUTERVAR, null]
+MOVE #65535, /65514
+
+; Quadruple - [MV T_20, 0, null]
+MOVE #0, /65513
+
+; Quadruple - [SUB T_21, T_19, T_20]
+SUB /65514, /65513
+MOVE .A, /65512
+
+; Quadruple - [STP T_21, T_28, null]
+MOVE #65512, .R0
+MOVE [.R0], .R0
+MOVE /65505, [.R0]
+
+; Quadruple - [BR L_3, null, null]
+BR /L_3
+
+; Quadruple - [INL L_4, null, null]
+L_4:
+
+; Quadruple - [MV T_42, 0, null]
+MOVE #0, /65491
+
+; Quadruple - [GR T_43, T_41, T_42]
+MOVE /65492, .A
+SUB /65491, .A
+BZ /grE65490
+BP /grE65490
+MOVE #1, /65490
+BR /grE265490
+grE65490:
+MOVE #0, /65490
+grE265490:
+
+; Quadruple - [BRF T_43, L_6, null]
+CMP #0, /65490
+BZ /L_6
+
+; Quadruple - [WRITESTRING T_44, L_5, null]
+WRSTR /L_5
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [INL L_6, null, null]
+L_6:
+
+; Quadruple - [WRITEINT T_46, null, null]
+WRINT /65487
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [HALT null, null, null]
+HALT
+
+; Quadruple - [CADENA pOsiTive, L_5, null]
+L_5: DATA "pOsiTive"
+

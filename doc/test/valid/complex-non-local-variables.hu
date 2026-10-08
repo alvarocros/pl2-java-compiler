@@ -1,0 +1,79 @@
+procedure upToFive() is
+    FIVE: constant := 5;
+
+    type TResultado is record
+        resultadoFuncion: Integer;
+    end record;
+
+    resultado: TResultado;
+    indice: Integer;
+    valueToSetTo: Integer;
+
+    function returnSetToWithoutModifying(indice: Integer) return Integer is
+        procedure setParameter() is
+            -- This method sets the outer parameter indice to the value of
+            -- the outer variable valueToSetTo.
+            -- Note that because of shadowing, the global indice should not be modified.
+        begin
+            indice := valueToSetTo;
+        end setParameter;
+    begin
+        -- This should set indice to valueToSetTo regardless of value passed
+        setParameter();
+
+        Put_line("Acceso a variables externas...");
+        if (indice /= 5) then
+            Put_line("FAIL");
+        else
+            Put_line("OK");
+        end if;
+
+        return indice;
+    end returnSetToWithoutModifying;
+
+    procedure levelOne(n: out Integer) is
+        procedure levelTwo() is
+            procedure levelThree() is
+                procedure levelFour() is
+                begin
+                    n := 42;
+                end levelFour;
+            begin
+                levelFour();
+            end levelThree;
+        begin
+            levelThree();
+        end levelTwo;
+    begin
+        levelTwo();
+    end levelOne;
+
+begin
+    indice := 10;
+    valueToSetTo := FIVE;
+
+    resultado.resultadoFuncion := returnSetToWithoutModifying(indice);
+
+    Put_line("No se modifican variables ocultas de scopes superiores...");
+    if (indice /= 10) then
+        Put_line("FAIL");
+    else
+        Put_line("OK");
+    end if;
+
+    Put_line("Se modifica correctamente un parametro local que oculta a variable superior...");
+    if (resultado.resultadoFuncion /= 5) then
+        Put_line("FAIL");
+    else
+        Put_line("OK");
+    end if;
+
+    levelOne(valueToSetTo);
+    Put_line("Se modifica correctamente un parametro local OUT desde varios niveles por debajo...");
+    if (valueToSetTo /= 42) then
+        Put_line("FAIL");
+    else
+        Put_line("OK");
+    end if;
+
+end upToFive;

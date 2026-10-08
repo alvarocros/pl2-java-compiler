@@ -1,0 +1,100 @@
+; Quadruple - [VARGLOBAL counter, 0, null]
+MOVE #0, /65535
+
+; Quadruple - [MV T_1, 10, null]
+MOVE #10, /65533
+
+; Quadruple - [MVA T_0, counter, null]
+MOVE #65535, /65534
+
+; Quadruple - [STP T_0, T_1, null]
+MOVE #65534, .R0
+MOVE [.R0], .R0
+MOVE /65533, [.R0]
+
+; Quadruple - [INL L_1, null, null]
+L_1:
+
+; Quadruple - [MVP T_2, counter, null]
+MOVE #65535, .R0
+MOVE [.R0], /65532
+
+; Quadruple - [MV T_3, 1, null]
+MOVE #1, /65531
+
+; Quadruple - [GR T_4, T_2, T_3]
+MOVE /65532, .A
+SUB /65531, .A
+BZ /grE65530
+BP /grE65530
+MOVE #1, /65530
+BR /grE265530
+grE65530:
+MOVE #0, /65530
+grE265530:
+
+; Quadruple - [BRF T_4, L_2, null]
+CMP #0, /65530
+BZ /L_2
+
+; Quadruple - [MVP T_5, counter, null]
+MOVE #65535, .R0
+MOVE [.R0], /65529
+
+; Quadruple - [MV T_6, 5, null]
+MOVE #5, /65528
+
+; Quadruple - [NE T_7, T_5, T_6]
+CMP /65528, /65529
+BNZ /neT65527
+MOVE #0, /65527
+BR /neE65527
+neT65527:
+MOVE #1, /65527
+neE65527:
+
+; Quadruple - [BRF T_7, L_0, null]
+CMP #0, /65527
+BZ /L_0
+
+; Quadruple - [MVP T_8, counter, null]
+MOVE #65535, .R0
+MOVE [.R0], /65526
+
+; Quadruple - [WRITEINT T_8, null, null]
+WRINT /65526
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [INL L_0, null, null]
+L_0:
+
+; Quadruple - [MVP T_10, counter, null]
+MOVE #65535, .R0
+MOVE [.R0], /65524
+
+; Quadruple - [MV T_11, 1, null]
+MOVE #1, /65523
+
+; Quadruple - [SUB T_12, T_10, T_11]
+SUB /65524, /65523
+MOVE .A, /65522
+
+; Quadruple - [MVA T_9, counter, null]
+MOVE #65535, /65525
+
+; Quadruple - [STP T_9, T_12, null]
+MOVE #65525, .R0
+MOVE [.R0], .R0
+MOVE /65522, [.R0]
+
+; Quadruple - [BR L_1, null, null]
+BR /L_1
+
+; Quadruple - [INL L_2, null, null]
+L_2:
+
+; Quadruple - [HALT null, null, null]
+HALT
+

@@ -1,0 +1,76 @@
+; Quadruple - [VARGLOBAL a, 0, null]
+MOVE #0, /65535
+
+; Quadruple - [VARGLOBAL b, 0, null]
+MOVE #0, /65534
+
+; Quadruple - [VARGLOBAL z, 0, null]
+MOVE #0, /65533
+
+; Quadruple - [WRITESTRING T_0, L_0, null]
+WRSTR /L_0
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [MV T_2, 5, null]
+MOVE #5, /65530
+
+; Quadruple - [MVA T_1, a, null]
+MOVE #65535, /65531
+
+; Quadruple - [STP T_1, T_2, null]
+MOVE #65531, .R0
+MOVE [.R0], .R0
+MOVE /65530, [.R0]
+
+; Quadruple - [MV T_4, 3, null]
+MOVE #3, /65528
+
+; Quadruple - [MVA T_3, b, null]
+MOVE #65534, /65529
+
+; Quadruple - [STP T_3, T_4, null]
+MOVE #65529, .R0
+MOVE [.R0], .R0
+MOVE /65528, [.R0]
+
+; Quadruple - [MVA T_5, z, null]
+MOVE #65533, /65527
+
+; Quadruple - [STP T_5, T_8, null]
+MOVE #65527, .R0
+MOVE [.R0], .R0
+MOVE /65524, [.R0]
+
+; Quadruple - [WRITESTRING T_9, L_1, null]
+WRSTR /L_1
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [MVP T_10, z, null]
+MOVE #65533, .R0
+MOVE [.R0], /65522
+
+; Quadruple - [WRITEINT T_10, null, null]
+WRINT /65522
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [HALT null, null, null]
+HALT
+
+; Quadruple - [CADENA SUBPROGRAMAS FUNCIONES, L_0, null]
+L_0: DATA "SUBPROGRAMAS FUNCIONES"
+
+; Quadruple - [CADENA z(2):, L_1, null]
+L_1: DATA "z(2):"
+
+; Quadruple - [CADENA_BOOL_TRUE null, null, null]
+wbTrue: DATA "true"
+
+; Quadruple - [CADENA_BOOL_FALSE null, null, null]
+wbFalseStr: DATA "false"
+

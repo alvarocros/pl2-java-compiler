@@ -1,0 +1,79 @@
+PrOCeDUrE UPtOFIvE() is
+    five: CoNsTant := 5;
+
+    tyPe trEsultaDO IS recoRd
+        RESUltAdOfunciOn: iNtEgeR;
+    END rECORD;
+
+    reSULTAdo: tresuLTaDo;
+    iNdICE: iNTEGeR;
+    VALuetoseTTo: inTegER;
+
+    funcTION retURNSetToWIThouTModiFYING(indicE: InTEGer) reTURn InTEgEr Is
+        ProCeDUrE SEtpAraMeTEr() iS
+            -- tHis MeTHod SETs thE OUTer PARaMEtEr INdIce to THe vALue oF
+            -- THE oUteR VaRiAble VAlueTOSetTo.
+            -- nOte THAt becAuse OF sHADOWing, tHE GlOBAL indiCe SHoUld nOT bE mODiFIED.
+        BeGin
+            INDIce := valUetOsETTO;
+        EnD SeTPaRAmETER;
+    beGiN
+        -- THIs ShoUld seT inDiCe To VALUEtOsETTo reGaRdlesS of vaLuE PasSEd
+        SeTparAMeTeR();
+
+        pUT_LINE("aCCesO a VARiableS eXteRNas...");
+        If (IndIce /= 5) then
+            PUT_LiNE("FAiL");
+        eLsE
+            PuT_lINE("oK");
+        enD if;
+
+        rEturN iNDIcE;
+    eNd ReTUrnSEtToWiTHOUTmOdIfYiNg;
+
+    prOCeDure lEveLOne(n: oUt iNTEgEr) is
+        pRoCedure LeVEltwO() is
+            pRocEdurE LeveLThrEE() is
+                PROceDure LEVELfoUr() is
+                bEGiN
+                    N := 42;
+                end LevElFOUR;
+            BeGIN
+                lEvelfOuR();
+            End levELTHrEE;
+        Begin
+            lEveltHRee();
+        ENd LEveLTWo;
+    beGIn
+        LeVeLTwo();
+    eND lEvEloNe;
+
+bEGIn
+    INDice := 10;
+    vaLuEtOSEttO := FiVe;
+
+    RESuLTADo.rESULtaDOFunCion := rETurNsETToWIthoutMoDifyiNG(IndicE);
+
+    PUt_linE("NO SE modIficAN VaRiaBLeS oCUlTaS De scoPES superIoRes...");
+    iF (INdICE /= 10) TheN
+        puT_linE("fAiL");
+    elSe
+        put_liNE("Ok");
+    end IF;
+
+    PUt_liNE("Se MOdificA CORRectAmente un PaRamEtRO locAL QUe OCuLTa A VaRiable SUpErioR...");
+    if (reSultAdO.RESuLTaDofuNCION /= 5) Then
+        PUt_line("FAil");
+    ELSE
+        pUT_LINe("ok");
+    end if;
+
+    LEVELOnE(ValUEtosEtTO);
+    PUt_LINE("sE modiFICA CorReCtAMenTe uN ParAMetRO locaL out Desde vaRioS nIvelES poR DEbajo...");
+    if (vAluEtOSEtto /= 42) tHEN
+        Put_liNE("fAIl");
+    eLSe
+        puT_lInE("OK");
+    end if;
+
+end uPtoFIVe;

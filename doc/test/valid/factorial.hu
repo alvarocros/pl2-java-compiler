@@ -1,0 +1,32 @@
+procedure Main() is
+    result: Integer;
+
+    function Factorial(n: Integer) return Integer is
+    begin
+        if (n > 1) then
+            return n * Factorial(n - 1);
+        end if;
+
+        return 1;
+    end Factorial;
+
+    procedure FactorialProc(n : Integer; result : out Integer) is
+        temp : Integer;
+    begin
+        if n > 1 then
+            FactorialProc(n - 1, temp);
+            result := n * temp;
+        else
+            result := 1;
+        end if;
+    end FactorialProc;
+
+begin
+    result := Factorial(5);
+    Put_line("factorial(5) [120]");
+    Put_line(result);
+    result := 1;
+    FactorialProc(6, result);
+    Put_line("factorial(6) (via procedure) [720]");
+    Put_line(result);
+end Main;

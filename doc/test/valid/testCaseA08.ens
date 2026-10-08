@@ -1,0 +1,21 @@
+; Quadruple - [VARGLOBAL A, 0, null]
+MOVE #0, /65535
+
+; Quadruple - [VARGLOBAL B, 0, null]
+MOVE #0, /65534
+
+; Quadruple - [VARGLOBAL Z, 0, null]
+MOVE #0, /65533
+
+; Quadruple - [WRITESTRING T_0, L_0, null]
+WRSTR /L_0
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [HALT null, null, null]
+HALT
+
+; Quadruple - [CADENA SUBPROGRAMAS FUNCIONES, L_0, null]
+L_0: DATA "SUBPROGRAMAS FUNCIONES"
+

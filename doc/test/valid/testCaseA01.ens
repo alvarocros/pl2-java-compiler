@@ -1,0 +1,79 @@
+; Quadruple - [VARGLOBAL p1, 0, null]
+MOVE #0, /65535
+
+; Quadruple - [VARGLOBAL mayorEdad, 0, null]
+MOVE #0, /65532
+
+; Quadruple - [VARGLOBAL x, 0, null]
+MOVE #0, /65531
+
+; Quadruple - [VARGLOBAL f1, 0, null]
+MOVE #0, /65530
+
+; Quadruple - [VARGLOBAL c1, 0, null]
+MOVE #0, /65527
+
+; Quadruple - [MV T_1, 1, null]
+MOVE #1, /65520
+
+; Quadruple - [MVA T_0, x, null]
+MOVE #65531, /65521
+
+; Quadruple - [STP T_0, T_1, null]
+MOVE #65521, .R0
+MOVE [.R0], .R0
+MOVE /65520, [.R0]
+
+; Quadruple - [MV T_6, 23, null]
+MOVE #23, /65515
+
+; Quadruple - [MVA T_2, p1, null]
+MOVE #65535, /65519
+
+; Quadruple - [MV T_3, 2, null]
+MOVE #2, /65518
+
+; Quadruple - [SUB T_4, T_2, T_3]
+MOVE /65519, .A
+SUB /65518, .A
+MOVE .A, /65517
+
+; Quadruple - [STP T_4, T_6, null]
+MOVE #65517, .R0
+MOVE [.R0], .R0
+MOVE /65515, [.R0]
+
+; Quadruple - [MV T_14, 5, null]
+MOVE #5, /65507
+
+; Quadruple - [MVA T_7, c1, null]
+MOVE #65527, /65514
+
+; Quadruple - [MV T_8, 3, null]
+MOVE #3, /65513
+
+; Quadruple - [SUB T_9, T_7, T_8]
+MOVE /65514, .A
+SUB /65513, .A
+MOVE .A, /65512
+
+; Quadruple - [MVP T_10, T_9, null]
+MOVE #65512, .R0
+MOVE [.R0], /65511
+
+; Quadruple - [MV T_11, 2, null]
+MOVE #2, /65510
+
+; Quadruple - [SUB T_12, T_9, T_11]
+MOVE /65512, .A
+SUB /65510, .A
+MOVE .A, /65509
+
+; Quadruple - [STP T_12, T_14, null]
+MOVE #65509, .R0
+MOVE [.R0], .R0
+MOVE /65507, [.R0]
+
+; Quadruple - [HALT null, null, null]
+HALT
+

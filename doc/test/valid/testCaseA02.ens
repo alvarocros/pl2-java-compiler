@@ -1,0 +1,27 @@
+; Quadruple - [WRITESTRING T_0, L_0, null]
+WRSTR /L_0
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [WRITESTRING T_1, L_1, null]
+WRSTR /L_1
+
+; Quadruple - [WRITELN null, null, null]
+WRCHAR #10
+
+; Quadruple - [HALT null, null, null]
+HALT
+
+; Quadruple - [CADENA hola, L_0, null]
+L_0: DATA "hola"
+
+; Quadruple - [CADENA mundo, L_1, null]
+L_1: DATA "mundo"
+
+; Quadruple - [CADENA_BOOL_TRUE null, null, null]
+wbTrue: DATA "true"
+
+; Quadruple - [CADENA_BOOL_FALSE null, null, null]
+wbFalseStr: DATA "false"
+
