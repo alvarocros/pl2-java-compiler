@@ -1,8 +1,16 @@
+# Archivos compilados y carpetas de salida
 *.class
 bin/
+bin/**
 build/
-.DS_Store
-doc/api/
+
+# Archivos de configuración de IDEs (Eclipse/VS Code)
 .settings/
+.settings/**
 .classpath
 .project
+.DS_Store
+
+# Documentación HTML generada automáticamente
+doc/api/
+doc/api/**
